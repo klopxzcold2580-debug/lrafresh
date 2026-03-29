@@ -1,0 +1,24 @@
+CXX = g++
+CXXFLAGS = -Wall -std=c++11
+TARGET = program
+OBJS = main.o Refrigerator.o Database.o
+
+all: $(TARGET)
+
+$(TARGET): $(OBJS)
+	$(CXX) $(CXXFLAGS) -o $(TARGET) $(OBJS)
+
+main.o: main.cpp Refrigerator.h
+	$(CXX) $(CXXFLAGS) -c main.cpp
+
+Refrigerator.o: Refrigerator.cpp Refrigerator.h
+	$(CXX) $(CXXFLAGS) -c Refrigerator.cpp
+
+Database.o: Database.cpp Refrigerator.h
+	$(CXX) $(CXXFLAGS) -c Database.cpp
+
+clean:
+	rm -f $(OBJS) $(TARGET) data.dat
+
+run: $(TARGET)
+	./$(TARGET)
