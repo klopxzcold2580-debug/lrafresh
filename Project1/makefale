@@ -8,14 +8,14 @@ all: $(TARGET)
 $(TARGET): $(OBJS)
 	$(CXX) $(CXXFLAGS) -o $(TARGET) $(OBJS)
 
-main.o: main.cpp Refrigerator.h
-	$(CXX) $(CXXFLAGS) -c main.cpp
+main.o: laba1.cpp Refrigerator.h
+	$(CXX) $(CXXFLAGS) -c laba1.cpp
 
-Refrigerator.o: Refrigerator.cpp Refrigerator.h
-	$(CXX) $(CXXFLAGS) -c Refrigerator.cpp
+Refrigerator.o: pom.cpp Refrigerator.h
+	$(CXX) $(CXXFLAGS) -c pom.cpp
 
-Database.o: Database.cpp Refrigerator.h
-	$(CXX) $(CXXFLAGS) -c Database.cpp
+Database.o: Source.cpp Refrigerator.h
+	$(CXX) $(CXXFLAGS) -c Source.cpp
 
 clean:
 	rm -f $(OBJS) $(TARGET) data.dat
